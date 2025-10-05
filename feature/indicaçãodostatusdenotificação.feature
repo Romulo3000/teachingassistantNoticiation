@@ -27,3 +27,9 @@ Scenario: O status de um aluno completo muda para pendente quando uma nova meta 
   And a turma possui apenas as metas de aprendizado "Entender conceitos de requisitos" e "Especificar requisitos com qualidade"
   When eu adiciono a nova meta de aprendizado "Entender conceitos de gerência de configuração" à turma
   Then o indicador de status ao lado do nome de "Maria Silva" deve mudar de "Completo" para "Pendente"
+
+Scenario: Exibir status quando a turma não possui metas de aprendizado
+  Given a aluna "Ana Leticia" está cadastrada na turma "Engenharia de Software 2025.2"
+  And a turma "Engenharia de Software 2025.2" não possui nenhuma meta de aprendizado definida
+  When eu acesso a página "Notas da Turma"
+  Then eu devo ver um indicador de status "N/A" (Não Aplicável) ao lado do nome de "Ana Leticia"
