@@ -15,3 +15,10 @@ Scenario: Exibir status de notas pendentes
   And o aluno "Pedro Alves" possui nota para "Entender conceitos de requisitos", mas nao possui nota para "Especificar requisitos com qualidade"
   When eu acesso a pagina "Notas da Turma"
   Then eu devo ver um indicador de status "Pendente" ao lado do nome de "Pedro Alves"
+
+Scenario: O status retorna para pendente após uma nota ser removida
+  Given a aluna "Maria Silva" possui um indicador de status "Completo"
+  And ela possui notas para todas as metas de aprendizado da turma
+  When eu removo a nota da aluna "Maria Silva" na meta "Especificar requisitos com qualidade"
+  Then o indicador de status ao lado do nome de "Maria Silva" deve mudar de "Completo" para "Pendente"
+  
