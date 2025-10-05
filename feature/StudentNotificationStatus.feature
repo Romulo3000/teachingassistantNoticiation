@@ -29,3 +29,4 @@ Feature: Indicação do status de notificação de cada aluno
     When eu tento lançar as notas pendentes de ambos ao mesmo tempo
     Then o sistema deve exibir a mensagem "Erro ao atualizar múltiplos alunos"
     And os status de "Rafaela Souza" e "Caio Andrade" devem permanecer como "Pendente"
+    And o sistema deve registrar o erro no log de notificações
