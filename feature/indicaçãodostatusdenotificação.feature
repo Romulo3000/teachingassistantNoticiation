@@ -33,3 +33,9 @@ Scenario: Exibir status quando a turma não possui metas de aprendizado
   And a turma "Engenharia de Software 2025.2" não possui nenhuma meta de aprendizado definida
   When eu acesso a página "Notas da Turma"
   Then eu devo ver um indicador de status "N/A" (Não Aplicável) ao lado do nome de "Ana Leticia"
+
+Scenario: O status de um aluno pendente muda para completo quando uma meta é removida
+  Given o aluno "Pedro Alves" possui um indicador de status "Pendente"
+  And a única nota que lhe falta é para a meta de aprendizado "Entender conceitos de gerência de configuração"
+  When eu removo a meta de aprendizado "Entender conceitos de gerência de configuração" da turma
+  Then o indicador de status ao lado do nome de "Pedro Alves" deve mudar de "Pendente" para "Completo"
