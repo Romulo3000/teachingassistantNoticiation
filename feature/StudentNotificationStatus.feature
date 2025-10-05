@@ -37,4 +37,8 @@ Feature: Indicação do status de notificação de cada aluno
     Then o sistema deve exibir uma mensagem "Nota inválida — operação cancelada"
     And o status do aluno "Rogério Melo" deve permanecer como "Pendente"
 
-
+    Scenario: Exibir status de notas completas
+    Given a turma "Engenharia de Software 2025.2" possui as metas de aprendizado "Entender conceitos de requisitos" e "Especificar requisitos com qualidade"
+    And a aluna "Maria Silva" possui notas para "Entender conceitos de requisitos" e "Especificar requisitos com qualidade"
+    When eu acesso a pagina "Notas da Turma"
+    Then eu devo ver um indicador de status "Completo" ao lado do nome de "Maria Silva"
