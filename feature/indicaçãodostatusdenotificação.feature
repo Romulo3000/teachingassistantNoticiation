@@ -21,4 +21,9 @@ Scenario: O status retorna para pendente após uma nota ser removida
   And ela possui notas para todas as metas de aprendizado da turma
   When eu removo a nota da aluna "Maria Silva" na meta "Especificar requisitos com qualidade"
   Then o indicador de status ao lado do nome de "Maria Silva" deve mudar de "Completo" para "Pendente"
-  
+
+Scenario: O status de um aluno completo muda para pendente quando uma nova meta é adicionada à turma
+  Given a aluna "Maria Silva" possui um indicador de status "Completo"
+  And a turma possui apenas as metas de aprendizado "Entender conceitos de requisitos" e "Especificar requisitos com qualidade"
+  When eu adiciono a nova meta de aprendizado "Entender conceitos de gerência de configuração" à turma
+  Then o indicador de status ao lado do nome de "Maria Silva" deve mudar de "Completo" para "Pendente"
