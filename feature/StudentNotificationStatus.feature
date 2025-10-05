@@ -29,3 +29,12 @@ Feature: Indicação do status de notificação de cada aluno
     When eu tento lançar as notas pendentes de ambos ao mesmo tempo
     Then o sistema deve exibir a mensagem "Erro ao atualizar múltiplos alunos"
     And os status de "Rafaela Souza" e "Caio Andrade" devem permanecer como "Pendente"
+
+    Scenario: O sistema não altera o status do aluno ao tentar registrar uma nota inválida
+    Given o aluno "Rogério Melo" está com status "Pendente"
+    And possui uma nota pendente na meta "Especificar requisitos com qualidade"
+    When eu tento lançar uma nota inválida "XYZ" para essa meta
+    Then o sistema deve exibir uma mensagem "Nota inválida — operação cancelada"
+    And o status do aluno "Rogério Melo" deve permanecer como "Pendente"
+
+
