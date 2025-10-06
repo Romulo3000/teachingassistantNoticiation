@@ -37,6 +37,6 @@ Scenario: Exibir status quando a turma não possui metas de aprendizado
 
 Scenario: O status de um aluno pendente muda para completo quando uma meta é removida
   Given o aluno "Pedro Alves" possui um indicador de status "Pendente"
-  And a única nota que lhe falta é para a meta de aprendizado "Entender conceitos de gerência de configuração"
-  When eu removo a meta de aprendizado "Entender conceitos de gerência de configuração" da turma
+  And a única nota que lhe falta é para a meta de aprendizado "Especificar requisitos com qualidade"
+  When eu removo a meta de aprendizado "Especificar requisitos com qualidade" da turma
   Then o indicador de status ao lado do nome de "Pedro Alves" deve mudar de "Pendente" para "Completo"
