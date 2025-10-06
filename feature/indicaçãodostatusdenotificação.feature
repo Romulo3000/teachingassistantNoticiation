@@ -27,9 +27,7 @@ Scenario: O status de um aluno completo muda para pendente quando uma nova meta 
   And a turma possui apenas as metas de aprendizado "Entender conceitos de requisitos" e "Especificar requisitos com qualidade"
   When eu adiciono a nova meta de aprendizado "Entender conceitos de gerência de configuração" à turma
   Then o indicador de status ao lado do nome de "Maria Silva" deve mudar de "Completo" para "Pendente"
-<<<<<<< HEAD
   And deve ser mostrada a seguinte mensagem na tela "Status de aluno/os foi alterado"
-=======
 
 Scenario: Exibir status quando a turma não possui metas de aprendizado
   Given a aluna "Ana Leticia" está cadastrada na turma "Engenharia de Software 2025.2"
@@ -42,4 +40,3 @@ Scenario: O status de um aluno pendente muda para completo quando uma meta é re
   And a única nota que lhe falta é para a meta de aprendizado "Entender conceitos de gerência de configuração"
   When eu removo a meta de aprendizado "Entender conceitos de gerência de configuração" da turma
   Then o indicador de status ao lado do nome de "Pedro Alves" deve mudar de "Pendente" para "Completo"
->>>>>>> dev
