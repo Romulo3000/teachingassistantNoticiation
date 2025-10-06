@@ -39,8 +39,10 @@ Feature: Indicação do status de notificação de cada aluno
     And o status do aluno "Rogério Melo" deve permanecer como "Pendente"
 
     Scenario: Exibir status de notas completas
-    Given a turma "Engenharia de Software 2025.2" possui as metas de aprendizado "Entender conceitos de requisitos" e "Especificar requisitos com qualidade"
+    Given a turma "Engenharia de Software 2025.2" possui as metas de aprendizagem "Entender conceitos de requisitos" e "Especificar requisitos com qualidade"
     And a aluna "Maria Silva" possui notas para "Entender conceitos de requisitos" e "Especificar requisitos com qualidade"
-    When eu acesso a pagina "Notas da Turma"
+    When eu acesso a página "Notas da Turma"
     Then eu devo ver um indicador de status "Completo" ao lado do nome de "Maria Silva"
+    And nenhuma pendência deve ser exibida para "Maria Silva"
+    And a ação de notificar aluno deve estar indisponível para "Maria Silva"
  
